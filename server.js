@@ -14,8 +14,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // Supabase setup
-const supabaseUrl = 'https://your-supabase-url.supabase.co'; // Replace with your Supabase URL
-const supabaseKey = 'your-anon-key'; // Replace with your Supabase anon key
+const supabaseUrl = 'https://wtkuplegobzobpyiaojj.supabase.co/'; // Replace with your Supabase URL
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0a3VwbGVnb2J6b2JweWlhb2pqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEwNDc5MjEsImV4cCI6MjA1NjYyMzkyMX0.BFnQ4bl1H8TV5E1D_bTKH1UEh91Po-_hzsHhbqCAEQ4'; // Replace with your Supabase anon key
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // JWT secret key (store this securely in production)
