@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .status {
+            font-weight: bold;
+            color: <%= user.status === 'Available' ? 'green' : 'red' %>;
+        }
+        .available-users {
+            margin-top: 20px;
+        }
+        .available-users ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .available-users li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, <%= user.username %>!</h1>
+    <p>Your status: <span class="status"><%= user.status %></span></p>
+    <form action="/toggle-status/<%= user.id %>" method="POST">
+        <button type="submit">Toggle Status</button>
+    </form>
+
+    <div class="available-users">
+        <h2>Available Users</h2>
+        <% if (availableUsers.length > 0) { %>
+            <ul>
+                <% availableUsers.forEach(availableUser => { %>
+                    <li><%= availableUser.username %></li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No users are currently available.</p>
+        <% } %>
+    </div>
+
+    <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
